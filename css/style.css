@@ -1,0 +1,90 @@
+/* Reset & box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("../assets/forest.jpg") no-repeat center/cover;
+  color: #ddd;
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Semi-transparent overlay to improve readability */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.logo {
+  width: 60px;
+  margin-bottom: 0.5rem;
+}
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.25rem;
+}
+header p {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+nav a {
+  color: #9acd32;
+  margin: 0 0.75rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Sections */
+section {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+}
+section h2 {
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid #9acd32;
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+
+/* Gallery stub */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  border-top: 1px solid #444;
+}
+footer a {
+  color: #9acd32;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
