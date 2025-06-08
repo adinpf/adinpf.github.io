@@ -67,6 +67,11 @@ section h2 {
   padding-bottom: 0.25rem;
 }
 
+/* add left padding so bullets aren’t flush to the container */
+section ul {
+  padding-left: 1.5rem;
+}
+
 /* Gallery stub */
 .gallery {
   display: flex;
