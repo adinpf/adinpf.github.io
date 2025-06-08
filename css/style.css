@@ -6,7 +6,8 @@
 }
 
 body {
-  background: url("../assets/forest.jpg") no-repeat center/cover;
+  /* background: url("../assets/forest.jpg") no-repeat center/cover; */
+  background: black;
   color: #ddd;
   font-family: "Segoe UI", sans-serif;
   line-height: 1.6;
