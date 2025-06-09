@@ -100,9 +100,8 @@ footer a:hover {
   cursor: pointer;
 }
 
-/* centered, fixed preview */
 .apple-preview {
-  display: none;
+  display: none; /* hidden */
   position: fixed;
   top: 50%;
   left: 50%;
@@ -116,20 +115,22 @@ footer a:hover {
 }
 
 .apple-name:hover .apple-preview {
-  display: block;
+  display: block; /* hover display */
 }
 
-/* optional table styling */
+/* table grid lines */
 #appleTable {
   width: 100%;
   border-collapse: collapse;
   margin: 1rem 0;
 }
+
 #appleTable th,
 #appleTable td {
-  border: 1px solid #444;
+  border: 1px solid #cf4545; /* This defines the grid lines */
   padding: 0.5rem;
 }
+
 #appleTable th {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(234, 227, 227, 0.6);
 }
