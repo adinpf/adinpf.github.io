@@ -100,19 +100,36 @@ footer a:hover {
   cursor: pointer;
 }
 
+/* centered, fixed preview */
 .apple-preview {
   display: none;
-  position: absolute;
-  top: 0;
-  left: 100%;
-  width: 150px;
-  max-height: 150px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  max-height: 80vh;
   object-fit: contain;
   border: 1px solid #444;
   background: #000;
-  z-index: 10;
+  z-index: 999;
 }
 
 .apple-name:hover .apple-preview {
   display: block;
+}
+
+/* optional table styling */
+#appleTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+#appleTable th,
+#appleTable td {
+  border: 1px solid #444;
+  padding: 0.5rem;
+}
+#appleTable th {
+  background: rgba(0, 0, 0, 0.6);
 }

@@ -53,21 +53,10 @@
 
     <section id="apples">
       <h2>Apples</h2>
-      <ul>
-        <li>
-          <span class="apple-name">
-            Fuji
-            <img
-              src="assets/fuji-large.jpg"
-              alt="Fuji apple"
-              class="apple-preview"
-            />
-          </span>
-        </li>
-        <!-- add apples here… -->
-      </ul>
+      <div id="appleTableContainer"></div>
       <div class="gallery"></div>
     </section>
+
     <script>
       fetch("apples-table.html")
         .then((res) => res.text())
