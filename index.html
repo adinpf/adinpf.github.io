@@ -15,6 +15,7 @@
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#graphics">Graphics</a>
+        <a href="#apples">Apples</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -22,23 +23,23 @@
     <section id="about">
       <h2>About Me</h2>
       <p>
-        I'm a quantitative researcher & developer with interests in algorithms,
-        machine learning, and computational imaging...
+        I am a senior studying Mathematics and Computer Science at Brown
+        University. I am a quantitative researcher & developer with interests in
+        algorithms, machine learning, and computational imaging...
       </p>
     </section>
 
     <section id="projects">
       <h2>Projects</h2>
       <ul>
-        <li>
+        <!-- <li>
           <strong>GrabCut Preprocessor</strong> — custom graph-cut extraction
           for microscopy images.
-        </li>
+        </li> -->
         <li>
-          <strong>ST-GCN Subway Flow</strong> — TensorFlow spatio-temporal GCN
-          forecasting NYC ridership.
+          <strong>ST-GCN Subway Flow</strong> — TensorFlow deep spatio-temporal
+          GCN forecasting hourly NYC subway pedestrian counts.
         </li>
-        <!-- etc. -->
       </ul>
     </section>
 
@@ -50,10 +51,34 @@
       </div>
     </section>
 
+    <section id="apples">
+      <h2>Apples</h2>
+      <ul>
+        <li>
+          <span class="apple-name">
+            Fuji
+            <img
+              src="assets/fuji-large.jpg"
+              alt="Fuji apple"
+              class="apple-preview"
+            />
+          </span>
+        </li>
+        <!-- add apples here… -->
+      </ul>
+      <div class="gallery"></div>
+    </section>
+    <script>
+      fetch("apples-table.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("appleTableContainer").innerHTML = html;
+        });
+    </script>
     <footer id="contact">
       <p>
         Find me on <a href="https://github.com/adinpf">GitHub</a> •
-        <a href="mailto:adin@example.com">Email me</a>
+        <a href="mailto:adinpf@brown.edu">Email</a>
       </p>
     </footer>
   </body>

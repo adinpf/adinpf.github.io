@@ -94,3 +94,25 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
+.apple-name {
+  position: relative;
+  cursor: pointer;
+}
+
+.apple-preview {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 150px;
+  max-height: 150px;
+  object-fit: contain;
+  border: 1px solid #444;
+  background: #000;
+  z-index: 10;
+}
+
+.apple-name:hover .apple-preview {
+  display: block;
+}
