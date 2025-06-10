@@ -123,13 +123,13 @@ footer a:hover {
   width: 100%;
   border-collapse: collapse;
   margin: 1rem 0;
-  background: rgb(183, 27, 27);
+  background: rgb(224, 53, 53);
   color: #000;
 }
 
 #appleTable th,
 #appleTable td {
-  border: 1px solid #cf4545; /* This defines the grid lines */
+  border: 1px solid #ffffff; /* grid lines */
   padding: 0.5rem;
 }
 
