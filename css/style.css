@@ -124,6 +124,7 @@ footer a:hover {
   border-collapse: collapse;
   margin: 1rem 0;
   background: rgb(183, 27, 27);
+  color: #000;
 }
 
 #appleTable th,
