@@ -1,3 +1,14 @@
+const UP_ARROW = "▲";
+const DOWN_ARROW = "▼";
+const UP_DOWN_ARROW = "↕";
+const ARROW_REGEX = new RegExp(
+  `\\s*(${UP_ARROW}|${DOWN_ARROW}|${UP_DOWN_ARROW})$`
+);
+
+function getBaseHeaderText(headerText) {
+  return headerText.replace(ARROW_REGEX, "").trim();
+}
+
 function sortTable(columnIndex) {
   const table = document.getElementById("appleTable");
   if (!table) {
@@ -10,20 +21,21 @@ function sortTable(columnIndex) {
     return;
   }
   const rows = Array.from(tbody.rows);
-  const headerCell = table.tHead.rows[0].cells[columnIndex];
+  const headerCells = Array.from(table.tHead.rows[0].cells);
+  const activeHeaderCell = headerCells[columnIndex];
 
   // sort direction (toggle asc/desc)
   let currentDirection =
-    headerCell.getAttribute("data-sort-direction") || "desc";
+    activeHeaderCell.getAttribute("data-sort-direction") || "desc";
   let newDirection = currentDirection === "asc" ? "desc" : "asc";
-  headerCell.setAttribute("data-sort-direction", newDirection);
+  activeHeaderCell.setAttribute("data-sort-direction", newDirection);
 
-  // reset dir for other headers
-  Array.from(table.tHead.rows[0].cells).forEach((th) => {
-    if (th !== headerCell) {
+  // Reset direction and arrows for other headers
+  headerCells.forEach((th, index) => {
+    const baseText = getBaseHeaderText(th.textContent);
+    if (index !== columnIndex) {
       th.removeAttribute("data-sort-direction");
-      // remove sort indicators from other columns
-      th.textContent = th.textContent.replace(/ ▲| ▼/, "");
+      th.textContent = `${baseText} ${UP_DOWN_ARROW}`;
     }
   });
 
@@ -31,7 +43,6 @@ function sortTable(columnIndex) {
     const cellA = rowA.cells[columnIndex].textContent.trim();
     const cellB = rowB.cells[columnIndex].textContent.trim();
 
-    // numeric comparison first
     const numA = parseFloat(cellA);
     const numB = parseFloat(cellB);
 
@@ -39,19 +50,19 @@ function sortTable(columnIndex) {
     if (!isNaN(numA) && !isNaN(numB)) {
       comparison = numA - numB;
     } else {
-      // string comparison (case-insensitive) fallback
       comparison = cellA.toLowerCase().localeCompare(cellB.toLowerCase());
     }
 
     return newDirection === "asc" ? comparison : -comparison;
   });
 
-  // update header indicator
-  // remove old indicator
-  headerCell.textContent = headerCell.textContent.replace(/ ▲| ▼/, "");
-  headerCell.textContent += newDirection === "asc" ? " ▲" : " ▼";
+  // update active header indicator
+  const activeBaseText = getBaseHeaderText(activeHeaderCell.textContent);
+  activeHeaderCell.textContent = `${activeBaseText} ${
+    newDirection === "asc" ? UP_ARROW : DOWN_ARROW
+  }`;
 
   // re-append sorted rows to the table body
-  tbody.innerHTML = ""; // Clear existing rows
+  tbody.innerHTML = ""; // clear existing rows
   rows.forEach((row) => tbody.appendChild(row));
 }
