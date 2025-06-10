@@ -30,7 +30,7 @@ function sortTable(columnIndex) {
   let newDirection = currentDirection === "asc" ? "desc" : "asc";
   activeHeaderCell.setAttribute("data-sort-direction", newDirection);
 
-  // Reset direction and arrows for other headers
+  // reset direction and arrows for other headers
   headerCells.forEach((th, index) => {
     const baseText = getBaseHeaderText(th.textContent);
     if (index !== columnIndex) {
